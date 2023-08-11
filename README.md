@@ -1,4 +1,7 @@
 # FPEFF1
+
+> 💡 This repository is no longer actively maintained by DB Systel GmbH. Its development will continue here: https://github.com/xformerfhs/FPEFF1
+
 Visual Basic .Net class for the format preserving encryption algorithm FF1 as specified in [NIST Special Publication 800-38G (February 2019)](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-38Gr1-draft.pdf "NIST SP 800-38Gr1").
 
 ## Format Preserving Encryption
@@ -11,15 +14,15 @@ This form of encryption is not restricted to numbers. One could also use texts. 
     B <=> 2
     ...
     Z <=> 26
-    
+
 If one has the text "HOWDY THERE HOW ARE YOU" it would first be converted to the following numbers:
 
     8,15,23,4,25,0,20,8,5,18,5,0,8,15,23,0,1,18,5,0,25,15,21
-    
+
 This is then encrypted with a certain key and a certain tweak to
 
     21,14,10,3,20,20,8,14,20,18,13,1,3,24,2,2,2,22,6,20,3,22,24
-    
+
 which is then mapped to the text "UNJCTTHNTRMACXBBBVFTCVX".
 
 ## Usage
@@ -27,7 +30,7 @@ This project contains a shared class "FF1" that implements the algorithm mention
 
 The command line program can be used like this:
 
-    fpeff1 encrypt 10 0,1,2,3,4,5,6,7,8,9 2B7E151628AED2A6ABF7158809CF4F3C 39383736353433323130    
+    fpeff1 encrypt 10 0,1,2,3,4,5,6,7,8,9 2B7E151628AED2A6ABF7158809CF4F3C 39383736353433323130
 
 This means: Encrypt the base 10 numbers "0,1,2,3,4,5,6,7,8,9" with the FF1 algorithm using the key "2B7E151628AED2A6ABF7158809CF4F3C" and the tweak "39383736353433323130". The expected output is:
 
@@ -36,7 +39,7 @@ This means: Encrypt the base 10 numbers "0,1,2,3,4,5,6,7,8,9" with the FF1 algor
 The decryption would be
 
     fpeff1 decrypt 10 6,1,2,4,2,0,0,7,7,3 2B7E151628AED2A6ABF7158809CF4F3C 39383736353433323130
-    
+
 which should yield
 
     0,1,2,3,4,5,6,7,8,9
